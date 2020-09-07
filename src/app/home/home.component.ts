@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   registerToggle() {
-    this.registerMode = !this.registerMode;
+    this.registerMode = true;
   }
 
   // tslint:disable-next-line:typedef
@@ -25,4 +25,8 @@ export class HomeComponent implements OnInit {
     this.http.get('http://localhost:5000/api/customerApi').subscribe(response => this.customers = response);
   }
 
+  // tslint:disable-next-line:typedef
+  cancelRegisterMode(registerMode: boolean) {
+    this.registerMode = registerMode;
+  }
 }
