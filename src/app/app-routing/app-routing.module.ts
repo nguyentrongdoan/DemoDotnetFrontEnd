@@ -4,6 +4,7 @@ import {HomeComponent} from '../home/home.component';
 import {MemberListComponent} from '../member-list/member-list.component';
 import {MessagesComponent} from '../messages/messages.component';
 import {ListsComponent} from '../lists/lists.component';
+import {AuthGuard} from '../guard/auth.guard';
 
 
 const routes: Routes = [
@@ -11,7 +12,7 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path: 'members', component: MemberListComponent
+    path: 'members', component: MemberListComponent, canActivate: [AuthGuard]
   },
   {
     path: 'messages', component: MessagesComponent
