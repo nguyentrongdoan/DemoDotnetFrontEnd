@@ -15,7 +15,12 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
+import {JwtModule} from '@auth0/angular-jwt';
 
+
+export function tokenGetter(): string {
+  return localStorage.getItem('token');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +38,14 @@ import { MemberCardComponent } from './members/member-card/member-card.component
         HttpClientModule,
         FormsModule,
         BsDropdownModule.forRoot(),
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        JwtModule.forRoot({
+          config: {
+            tokenGetter,
+            allowedDomains: ['localhost:5000'],
+            disallowedRoutes: ['localhost:5000/api/auth']
+          }
+        })
     ],
   providers: [
     ErrorInterceptorProvider
