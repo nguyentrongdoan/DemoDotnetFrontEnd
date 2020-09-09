@@ -17,15 +17,18 @@ export class MemberDetailsComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.loadUser();
-  }
-  // tslint:disable-next-line:typedef
-  loadUser() {
-    this.userService.getUser(+ this.route.snapshot.params.id).subscribe((user: User) => {
-      this.user = user;
-    }, error => {
-      this.alertify.error(error);
+    // this.loadUser();
+    this.route.data.subscribe(data => {
+      this.user = data.user;
     });
   }
+
+  // loadUser() {
+  //   this.userService.getUser(+ this.route.snapshot.params.id).subscribe((user: User) => {
+  //     this.user = user;
+  //   }, error => {
+  //     this.alertify.error(error);
+  //   });
+  // }
 
 }
