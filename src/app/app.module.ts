@@ -19,6 +19,7 @@ import {JwtModule} from '@auth0/angular-jwt';
 import { MemberDetailsComponent } from './members/member-details/member-details.component';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import {MemberDetailResolver} from './resolve/member-detail.resolver';
+import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 
 
 export function tokenGetter(): string {
@@ -43,6 +44,7 @@ export function tokenGetter(): string {
         FormsModule,
         BsDropdownModule.forRoot(),
         BrowserAnimationsModule,
+        NgxGalleryModule,
         TabsModule.forRoot(),
         JwtModule.forRoot({
           config: {
