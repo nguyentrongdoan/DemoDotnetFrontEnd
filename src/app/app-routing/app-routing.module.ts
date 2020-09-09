@@ -5,6 +5,7 @@ import {MemberListComponent} from '../members/member-list/member-list.component'
 import {MessagesComponent} from '../messages/messages.component';
 import {ListsComponent} from '../lists/lists.component';
 import {AuthGuard} from '../guard/auth.guard';
+import {MemberDetailsComponent} from '../members/member-details/member-details.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,9 @@ const routes: Routes = [
     children: [
       {
         path: 'members', component: MemberListComponent
+      },
+      {
+        path: 'members/:id', component: MemberDetailsComponent
       },
       {
         path: 'messages', component: MessagesComponent
