@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../model/user';
 import {AlertifyService} from '../../service/alertify.service';
@@ -12,6 +12,13 @@ import {NgForm} from '@angular/forms';
 export class MemberEditComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm;
   user: User;
+  @HostListener('window: beforeunload', ['$event'])
+  // tslint:disable-next-line:typedef
+  unloadNotification($event: any) {
+    if (this.editForm.dirty) {
+      $event.returnValue = false;
+    }
+  }
 
   constructor(private route: ActivatedRoute,
               private alertify: AlertifyService) { }
