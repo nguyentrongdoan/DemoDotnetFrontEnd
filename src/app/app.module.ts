@@ -21,6 +21,7 @@ import {TabsModule} from 'ngx-bootstrap/tabs';
 import {MemberDetailResolver} from './resolve/member-detail.resolver';
 import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 
 
 export function tokenGetter(): string {
@@ -37,7 +38,8 @@ export function tokenGetter(): string {
     MessagesComponent,
     MemberCardComponent,
     MemberDetailsComponent,
-    MemberEditComponent
+    MemberEditComponent,
+    PhotoEditorComponent
   ],
     imports: [
         BrowserModule,
