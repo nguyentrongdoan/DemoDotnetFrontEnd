@@ -22,6 +22,7 @@ import {MemberDetailResolver} from './resolve/member-detail.resolver';
 import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 
 export function tokenGetter(): string {
@@ -48,6 +49,7 @@ export function tokenGetter(): string {
         FormsModule,
         BsDropdownModule.forRoot(),
         BrowserAnimationsModule,
+        FileUploadModule,
         NgxGalleryModule,
         TabsModule.forRoot(),
         JwtModule.forRoot({
