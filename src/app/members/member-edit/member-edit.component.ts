@@ -41,4 +41,8 @@ export class MemberEditComponent implements OnInit {
       this.alertify.error(error);
     });
   }
+  // tslint:disable-next-line:typedef
+  updateMainPhoto(photoUrl) {
+    this.user.photoUrl = photoUrl;
+  }
 }
