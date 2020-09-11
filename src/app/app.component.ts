@@ -24,6 +24,7 @@ export class AppComponent {
     }
     if (user) {
       this.authService.currentUser = user;
+      this.authService.changMemberPhoto(user.photoUrl);
     }
   }
 }
