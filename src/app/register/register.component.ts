@@ -25,6 +25,11 @@ export class RegisterComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+  passwordMatchValidator(g: FormGroup) {
+    return g.get('password').value === g.get('confirmPassword').value ? null : {mismatch: true};
+  }
+
+  // tslint:disable-next-line:typedef
   register() {
     // this.authService.register(this.model).subscribe(() => {
     //   this.alertify.success('registration successful');
