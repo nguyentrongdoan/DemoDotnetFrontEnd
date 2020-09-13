@@ -23,6 +23,8 @@ import {NgxGalleryModule} from '@kolkov/ngx-gallery';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import {FileUploadModule} from 'ng2-file-upload';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {RouterModule} from '@angular/router';
 
 
 export function tokenGetter(): string {
@@ -45,11 +47,13 @@ export function tokenGetter(): string {
     imports: [
         BrowserModule,
         AppRoutingModule,
+        BrowserAnimationsModule,
         HttpClientModule,
         FormsModule,
         BsDropdownModule.forRoot(),
         BrowserAnimationsModule,
         FileUploadModule,
+        BsDatepickerModule.forRoot(),
         NgxGalleryModule,
         TabsModule.forRoot(),
         JwtModule.forRoot({
