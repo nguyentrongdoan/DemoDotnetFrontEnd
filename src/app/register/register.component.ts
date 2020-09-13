@@ -1,7 +1,7 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {AuthService} from '../service/auth.service';
 import {AlertifyService} from '../service/alertify.service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +14,8 @@ export class RegisterComponent implements OnInit {
   model: any = {};
   registerForm: FormGroup;
 
-  constructor(private authService: AuthService, private alertify: AlertifyService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService,
+              private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -22,6 +23,15 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
       confirmPassword: new FormControl('', Validators.required),
     });
+  }
+
+  // tslint:disable-next-line:typedef
+  createRegisterForm() {
+    this.registerForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      confirmPassword: ['', Validators.required]
+    }, {validators: this.passwordMatchValidator});
   }
 
   // tslint:disable-next-line:typedef
