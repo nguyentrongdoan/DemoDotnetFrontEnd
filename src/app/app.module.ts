@@ -25,6 +25,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import {FileUploadModule} from 'ng2-file-upload';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {RouterModule} from '@angular/router';
+import {TimeagoModule} from 'ngx-timeago';
 
 
 export function tokenGetter(): string {
@@ -55,6 +56,7 @@ export function tokenGetter(): string {
         FileUploadModule,
         BsDatepickerModule.forRoot(),
         NgxGalleryModule,
+        TimeagoModule.forRoot(),
         TabsModule.forRoot(),
         JwtModule.forRoot({
             config: {
